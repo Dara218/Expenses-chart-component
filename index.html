@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="chart.css">
+  <title>Frontend Mentor | Expenses chart component</title>
+</head>
+<body>
+  
+  <div class="main-container">
+    <div class="inside-container">
+      <div class="top">
+
+        <div class="left">
+          <h4>My balance</h4>
+          <h2>&dollar;921.48</h2>
+        </div>
+
+        <div class="right">
+          <img src="/expenses-chart-component-main/images/logo.svg" alt="Main Logo">
+        </div>
+
+      </div>
+
+        <div class="main-content">
+          <h2>Spending - Last 7 days</h2>
+          <ul>
+            
+            <li>
+              <div class="pop-up">
+                &nbsp;
+              </div>
+              
+              <div class="bar" id="bar1" data-day="mon"></div>
+              <span>mon</span>
+            </li>
+
+            <li>
+
+              <div class="pop-up">
+                &nbsp;
+              </div>
+              
+              <div class="bar" id="bar2" data-day="tue"></div>
+              <span>tue</span>
+            </li>
+
+            <li>
+
+              <div class="pop-up">
+                &nbsp;
+              </div>
+              
+              <div class="bar" id="bar3" data-day="wed"></div>
+              <span>wed</span>
+            </li>
+
+            <li>  
+              
+              <div class="pop-up">
+                &nbsp;
+              </div>
+              
+              <div class="bar" id="bar4" data-day="thu"></div>
+              <span>thu</span>
+            </li>
+
+            <li>
+              <div class="pop-up">
+                &nbsp;
+              </div>
+
+              <div class="bar" id="bar5" data-day="fri"></div>
+              <span>fri</span>
+            </li>
+
+            <li>
+              <div class="pop-up">
+                &nbsp;
+              </div>
+
+              <div class="bar" id="bar6" data-day="sat"></div>
+              <span>sat</span>
+            </li>
+
+            <li>
+
+              <div class="pop-up">
+                &nbsp;
+              </div>
+              
+              <div class="bar" id="bar7" data-day="sun"></div>
+              <span>sun</span>
+            </li>
+          </ul>
+
+          <div class="total-container">
+
+            <div class="left">
+              <h4 class="dark-color-text">Total this month</h4>
+              <h2 id="total">&dollar;478.33</h2>
+            </div>
+    
+            <div class="right second">
+              <span>+2.4%</span>
+              <p class="dark-color-text">from the last month</p>
+            </div>
+    
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="chart.js"></script>
+</body>
+</html>
