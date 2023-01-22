@@ -1,46 +1,61 @@
 const allLi = document.querySelectorAll('.bar')
+const monEL = document.querySelector('#bar1')
+const tueEL = document.querySelector('#bar2')
+const wedEL = document.querySelector('#bar3')
+const thuEL = document.querySelector('#bar4')
+const friEL = document.querySelector('#bar5')
+const satEL = document.querySelector('#bar6')
+const sunEL = document.querySelector('#bar7')
 
 allLi.forEach(function(eachLi){
     eachLi.addEventListener('mouseover', function(e){
-        removeToggle()
+        removeClass()
         const target = e.target.parentElement.childNodes[1]
-        const dataset =  e.target.dataset.day
-
-        tryJson(dataset, target)
+        const targetData = e.target.dataset.day
+        target.classList.toggle('active')
+        outsideData(targetData, target)
     })
 })
 
-tryJson()
+const outsideData = async function getData(targetData, target){
+    const url = await fetch('data.json')
+    const response = await url.json()
 
-async function tryJson(dataset, target){
-    const get = await fetch('data.json')
-    const response = await get.json()
-    
-    response.filter(function(eachFilter){
-        if(eachFilter.day === dataset){
-            target.classList.toggle('active')
-            target.textContent = '$'+ eachFilter.amount
+    response.filter(function(eachResponse){
+        if(eachResponse.day === targetData){
+            target.textContent = '$' + eachResponse.amount
         }
     })
 
-    // const max = response.reduce(function(prev, current){
-    //     return (prev.amount > current.amount) ? prev : current  
-    // })
+    monEL.style.height = response[0].amount * 2 +'px'
+    tueEL.style.height = response[1].amount * 2 +'px'
+    wedEL.style.height = response[2].amount * 2 +'px'
+    thuEL.style.height = response[3].amount * 2 +'px'
+    friEL.style.height = response[4].amount * 2 +'px'
+    satEL.style.height = response[5].amount * 2 +'px'
+    sunEL.style.height = response[6].amount * 2 +'px'
+   
+    const max = response.reduce(function(prev, current){
+        return (prev.amount > current.amount) ? prev : current
+    })
 
-    // allLi.forEach(function(eachLi){
-    //     eachLi.filter(function(filterLi){
-    //         if(filterLi === max.day){
-    //             filterLi.style.backgroundColor = 'red'
-    //         }
-    //     })
-    // })
- 
+    const filterLI = allLi.forEach(function(allLi){
+      if(allLi.dataset.day === max.day){
+    //    max.style.backgroundColor = 'red'
+      }
+        
+    })
+
+    // console.log(filterLI);
 }
 
-function removeToggle(){
+outsideData()
+
+function removeClass(){
     allLi.forEach(function(eachLi){
-    eachLi.addEventListener('mouseout', function(e){
-        e.target.parentElement.childNodes[1].classList.remove('active')
+        eachLi.addEventListener('mouseleave', function(e){
+            const target = e.target.parentElement.childNodes[1]
+            target.classList.remove('active')
+        })
     })
-})
 }

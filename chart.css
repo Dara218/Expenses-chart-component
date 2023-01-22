@@ -169,3 +169,24 @@
     border-radius: 5px;
     color: white;
 }
+
+@media screen and (max-width: 475px){
+    .inside-container{
+        padding: 20px;
+    }
+
+    .main-content ul{
+        flex-wrap: wrap;
+        gap: 2px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .inside-container{
+        width:100%;
+    }
+    .main-content ul{
+        padding: 5px;  
+    }
+}
