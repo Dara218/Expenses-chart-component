@@ -17,6 +17,17 @@ allLi.forEach(function(eachLi){
     })
 })
 
+allLi.forEach(function(eachLi){
+    eachLi.addEventListener('click', function(e){
+        removeClass()
+        const target = e.target.parentElement.childNodes[1]
+        const targetData = e.target.dataset.day
+        target.classList.toggle('active')
+        outsideData(targetData, target)
+    })
+})
+
+
 const outsideData = async function getData(targetData, target){
     const url = await fetch('data.json')
     const response = await url.json()
